@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:links_manager/pages/home/homePage.dart';
-import 'package:links_manager/providers/linksProvider.dart';
 import 'package:links_manager/utils/dataModule.dart';
-import 'package:provider/provider.dart';
 
 Future<void> main() async {
   DataModule.initializeHive().whenComplete;
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => LinksProvider()),
-      ],
-      child: const MyApp(),
-    ),
-  );
+  runApp(const GetMaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

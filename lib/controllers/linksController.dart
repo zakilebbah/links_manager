@@ -1,17 +1,24 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:links_manager/models/pageLink.dart';
 import 'package:links_manager/utils/dataModule.dart';
 
-class LinksProvider with ChangeNotifier {
+class LinksController extends GetxController {
   final DataModule _dataModule = DataModule();
 
-  Future<List<PageLink>> _links = Future.value([]);
-  Future<List<PageLink>> get links => _links;
+  Future<List<PageLink>> links = Future.value([]);
+  // Future<List<PageLink>> links = _link
+
+  @override
+  void onInit() {
+    // called immediately after the widget is allocated memory
+    getLinks();
+    super.onInit();
+  }
 
   void getLinks() {
-    _links = _dataModule.getPageLinks();
-    notifyListeners();
+    links = _dataModule.getPageLinks();
+    update();
   }
 
   Future<void> addLink(PageLink link) async {
