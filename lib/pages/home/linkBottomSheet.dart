@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:links_manager/controllers/linksController.dart';
 import 'package:links_manager/models/pageLink.dart';
-import 'package:links_manager/providers/linksProvider.dart';
 import 'package:links_manager/utils/utils.dart';
 import 'package:links_manager/utils/validators.dart';
-import 'package:provider/provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class LinkBottomSheet extends StatefulWidget {
